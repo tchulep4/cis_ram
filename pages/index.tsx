@@ -1,0 +1,1 @@
+<!-- Conteúdo do index.tsx conforme última versão -->
