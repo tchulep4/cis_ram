@@ -1,4 +1,4 @@
-
+import FileUploader from '@/components/FileUploader'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { nhost } from '../../lib/nhost'
@@ -56,6 +56,7 @@ export default function EditRisk() {
       ))}
       {error && <p className="text-red-500">{error}</p>}
       <button type="submit" className="bg-blue-600 text-white p-2 rounded">Atualizar</button>
+      <FileUploader riskid={id as string} />
     </form>
   )
 }
