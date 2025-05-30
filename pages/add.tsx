@@ -1,4 +1,5 @@
-
+import DropdownAssetClass from '@/components/DropdownAssetClass'
+import DropdownImpactCriteria from '@/components/DropdownImpactCriteria'
 import { useState } from 'react'
 import { nhost } from '../lib/nhost'
 
@@ -35,9 +36,41 @@ export default function AddRisk() {
   return (
     <form onSubmit={handleSubmit} className="p-6 space-y-4">
       <h1 className="text-xl font-bold">Novo Risco</h1>
-      {['riskid', 'cis_safeguard', 'safeguard_title', 'asset_class', 'nist_function'].map(field => (
-        <input key={field} required name={field} placeholder={field} onChange={handleChange} className="border p-2 w-full" />
-      ))}
+      <input
+  required
+  name="riskid"
+  placeholder="riskid"
+  onChange={handleChange}
+  className="border p-2 w-full"
+/>
+<input
+  required
+  name="cis_safeguard"
+  placeholder="cis_safeguard"
+  onChange={handleChange}
+  className="border p-2 w-full"
+/>
+<input
+  required
+  name="safeguard_title"
+  placeholder="safeguard_title"
+  onChange={handleChange}
+  className="border p-2 w-full"
+/>
+
+<DropdownAssetClass
+  value={form.asset_class}
+  onChange={(val) => setForm({ ...form, asset_class: val })}
+/>
+
+<input
+  required
+  name="nist_function"
+  placeholder="nist_function"
+  onChange={handleChange}
+  className="border p-2 w-full"
+/>
+
       {['ig1', 'ig2', 'ig3'].map(field => (
         <input key={field} required type="number" min="1" max="5" name={field} placeholder={field} onChange={handleChange} className="border p-2 w-full" />
       ))}

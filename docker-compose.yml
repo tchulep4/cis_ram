@@ -1,0 +1,12 @@
+
+version: "3.8"
+services:
+  cis_ram_app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - NHOST_SUBDOMAIN=${NHOST_SUBDOMAIN}
+      - NHOST_REGION=${NHOST_REGION}
+    env_file:
+      - .env.local

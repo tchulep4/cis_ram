@@ -1,4 +1,4 @@
-
+import PdfButton from '@/components/PdfButton'
 import { useQuery, gql } from '@nhost/react-apollo'
 import Link from 'next/link'
 import { useState } from 'react'
@@ -81,12 +81,12 @@ export default function Home() {
 
       <ul className="mt-4 space-y-4">
         {currentItems.map((risk: any) => (
-          <li key={risk.riskid} className="border p-4 rounded">
-            <p><strong>{risk.safeguard_title}</strong></p>
-            <p>CIS: {risk.cis_safeguard}</p>
-            <p>NIST: {risk.nist_function}</p>
-            <Link href={`/edit/${risk.riskid}`} className="text-blue-600">Editar</Link>
-          </li>
+  <li key={risk.riskid} className="border p-4 rounded">
+    <p><strong>{risk.safeguard_title}</strong></p>
+    <p>CIS: {risk.cis_safeguard}</p>
+    <p>NIST: {risk.nist_function}</p>
+    <Link href={`/edit/${risk.riskid}`} className="text-blue-600">Editar</Link>
+    <PdfButton risk={risk} />
         ))}
       </ul>
 
